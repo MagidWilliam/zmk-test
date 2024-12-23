@@ -37,14 +37,14 @@
         dr-gpios = <&gpio0 6 (GPIO_ACTIVE_HIGH)>;
         sensitivity = "2x";
         sleep;
-        no-taps;
+        //no-taps;
     };
     input_config {
         compatible = "zmk,input-configs";
 
         cirque_config {
             device = <&cirque>;
-            scale-multiplier = <5>;
+            scale-multiplier = <2>;
         };
     };
    };
@@ -54,7 +54,7 @@
     compatible = "zmk,input-listener";
     device = <&cirque>;
     y-invert;
-    scale-multiplier = <5>;
+    scale-multiplier = <2>;
   };
 };
 
