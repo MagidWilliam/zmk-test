@@ -63,101 +63,171 @@
             bindings = <&kp>, <&kp>;
         };
     };
-        keymap {
-                compatible = "zmk,keymap";
-                win_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-// |  ESC |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | BSLH |
-//                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
-                        bindings = <
-   &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
-   ESCW    &kp A &kp S WHD   WHF   &kp G   &kp H WHJ    WHK       &kp L   &kp SEMI &kp SQT
-   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp BSLH
-                  &kp LCTRL   L_NAV LT_SPACE  &kp RET L_SYM &kp RALT
-                        >;
-                };
-                mac_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-// |  ESC |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | BSLH |
-//                    | CTL | LWR | SPC |   | ENT | RSE  | ALT |
-                        bindings = <
-   &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
-   ESCM    OBS   &kp S MHD   MHF    &kp G   &kp H MHJ    MHK       &kp L   &kp SEMI &kp SQT
-   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp BSLH
-                   &kp LGUI   L_NAV LT_SPACE  &kp RET L_SYM LANGM
-                        >;
-                };
-                nav_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-// | SHFT |     |     |     |     |     |   |     |     |     |     |     |  ~   |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
-                        bindings = <
-   TAB_C      &trans       &trans       &trans       &trans       &trans         &kp DEL    &kp PG_UP  &kp HOME &kp END   &kp PG_DN &kp BSPC
-   &trans     OBS_C        &trans       &trans       &trans       &trans         &kp LEFT   &kp DOWN   &kp UP   &kp RIGHT &kp COLON &kp KP_EQUAL
-   &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &trans     &trans     &kp F11  &kp F12   &kp UNDER &kp TILDE
-                                        &trans       &trans       &kp SPACE      &kp RET    L_FN   &trans
-                        >;
-                };
-                sym_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-// | CTRL |  _  |  {  |  [  |  (  |  -  |   |  +  |  )  |  ]  |  }  |  *  |  =   |
-// | SHFT |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  ,  |  ,  |  /  |  `   |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
-                        bindings = <
-   &kp GRAVE   &kp N1   &kp N2 &kp N3   &kp N4    &kp N5     &kp N6    &kp N7    &kp N8           &kp N9    &kp N0    &kp BSPC
-   &trans    &kp UNDER    &kp LBRC &kp LBKT   &kp LPAR  &kp MINUS      &kp PLUS     &kp RPAR  &kp RBKT     &kp RBRC  &kp KP_MULTIPLY  &kp KP_EQUAL
-   &kp LSHFT &kp EXCL &kp AT &kp HASH &kp DLLR  &kp PRCNT  &kp CARET &kp AMPS  &kp COMMA  &kp DOT &kp FSLH &trans
-                              &trans   L_FN     &trans     &kp RET   &trans      &trans
-                        >;
-                };
+           / {
+    combos {
+        compatible = "zmk,combos";
 
-                fn_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-// | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
-                        bindings = <
-   &kp F1    &kp F2   &kp F3     &kp F4   &kp F5      &kp F6        &kp F7       &kp F8       &kp F9       &kp F10      &kp F11 &kp F12
-   &kp C_PWR &none    &kp C_PREV &kp C_PP &kp C_NEXT  &none         &kp C_BRI_DN &kp C_VOL_DN &kp C_VOL_UP &kp C_BRI_UP &none   &none
-   &kp LSHFT &none    &none      &none    &none       &none         &none        &kp C_MUTE   &none        &none        &none   L_CFG
-                                 &kp LGUI &trans      &kp SPACE     &kp RET      &trans       &kp RALT
-                        >;
-                };
-                cfg_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-// | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
-                        bindings = <
-   &kp TAB    &to WIN      &to MAC      &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-   &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &trans
-                                    &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
-                        >;
-                };
-                mse_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-// | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
-                        bindings = <
-   &none     &none &none     &none        &msc SCRL_UP   &none         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
-   &trans    &none &mkp MCLK &mkp RCLK    &mkp LCLK      &none         &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &trans &trans
-   &kp LSHFT &none &none     &none        &msc SCRL_DOWN &none         &trans   &trans   &trans &trans    &trans &trans
-                            &kp LGUI     &trans     &trans        &kp RET  &trans   &kp RALT
-                        >;
-                };
+        a-za {
+            bindings = <&kp BACKSPACE>;
+            key-positions = <8 7>;
         };
-};
 
+        a-zb {
+            bindings = <&kp ESCAPE>;
+            key-positions = <3 2>;
+        };
+
+        a-zc {
+            bindings = <&kp ENTER>;
+            key-positions = <19 20>;
+        };
+
+        a-ad {
+            bindings = <&kp LEFT_WIN>;
+            key-positions = <36 37>;
+        };
+
+        a-ze {
+            bindings = <&kp DEL>;
+            key-positions = <8 9>;
+        };
+
+        a-zk {
+            bindings = <&kp B>;
+            key-positions = <30 31>;
+        };
+
+        a-zew {
+            bindings = <&kp LEFT_PARENTHESIS>;
+            key-positions = <9 10>;
+        };
+
+        a-zklw {
+            bindings = <&kp RIGHT_PARENTHESIS>;
+            key-positions = <10 11>;
+        };
+
+        a-zklx {
+            bindings = <&kp MINUS>;
+            key-positions = <6 7>;
+        };
+
+        z-dkf {
+            bindings = <&kp C_VOLUME_UP>;
+            key-positions = <6 18>;
+        };
+
+        z-dkfj {
+            bindings = <&kp C_VOLUME_DOWN>;
+            key-positions = <18 30>;
+        };
+
+        z-dkfjgd {
+            bindings = <&kp C_BRI_UP>;
+            key-positions = <7 19>;
+        };
+
+        z-dkfjgfg {
+            bindings = <&kp C_BRIGHTNESS_DEC>;
+            key-positions = <19 31>;
+        };
+
+        z-kdjfk {
+            bindings = <&kp LC(LS(TAB))>;
+            key-positions = <12 13>;
+        };
+
+        z-dsflkl {
+            bindings = <&kp LC(TAB)>;
+            key-positions = <13 14>;
+        };
+
+        s-sdfkfl {
+            bindings = <&kp LC(W)>;
+            key-positions = <1 2>;
+        };
+
+        z-sdflkfkfg {
+            bindings = <&kp LC(T)>;
+            key-positions = <4 5>;
+        };
+
+        z-dkfkfj {
+            bindings = <&kp K_BACK>;
+            key-positions = <25 26>;
+        };
+
+        z-kdfjg {
+            bindings = <&kp K_FORWARD>;
+            key-positions = <26 27>;
+        };
+
+        z-dkfjg {
+            bindings = <&kp SQT>;
+            key-positions = <35 23>;
+        };
+
+        z-kdfkgk {
+            bindings = <&kp SQT>;
+            key-positions = <21 22>;
+        };
+    };
+
+    behaviors {
+        new_behavior: new_behavior {
+            compatible = "zmk,behavior-mouse-key-press";
+            label = "NEW_BEHAVIOR";
+            #binding-cells = <1>;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            // -----------------------------------------------------------------------------------------
+            // |  ESC |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BSPC |
+            // | TAB  |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  | ENTER|
+            // | LCTRL|  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | RSHFT|
+            //                    |LCTRL| LALT| SP |   | SPACE | RSE  | RALT |
+
+            bindings = <
+&kp ESC    &kp Q  &kp W  &kp E      &kp R         &kp T    &kp Y      &kp U          &kp I      &kp O    &kp P     &kp BSPC
+&kp TAB    &kp A  &kp S  &kp D      &kp F         &kp G    &kp H      &kp J          &kp K      &kp L    &kp SEMI  &kp ENTER
+&kp LSHFT  &kp Z  &kp X  &kp C      &kp V         &kp B    &kp N      &kp M          &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
+                         &kp LCTRL  &kp LEFT_ALT  &mo 1    &kp SPACE  &kp RIGHT_ALT  &mo 2
+            >;
+        };
+
+        lower_layer {
+            // -----------------------------------------------------------------------------------------
+            // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BSPC |
+            // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
+            // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
+            //                    | GUI |     | SPC |   | ENT |     | ALT |
+
+            bindings = <
+&kp TILDE  &kp EXCLAMATION  &kp UP_ARROW  &kp UP_ARROW  &msc SCRL_DOWN  &msc SCRL_UP     &kp N7        &kp N8        &kp N9        &kp A           &kp EXCLAMATION  &kp BSPC
+&kp CAPS   &kp LEFT         &kp LEFT      &kp DOWN      &kp RIGHT       &kp PAGE_UP      &kp NUMBER_4  &kp N5        &kp NUMBER_6  &mkp MB1        &mmv MOVE_UP     &mkp MB2
+&kp LSHFT  &trans           &trans        &trans        &trans          &kp PAGE_DOWN    &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &mmv MOVE_LEFT  &mmv MOVE_DOWN   &mmv MOVE_RIGHT
+                                          &kp LCTRL     &kp LEFT_ALT    &kp SPACE        &kp N0        &kp DOT       &kp RALT
+            >;
+        };
+
+        raise_layer {
+            // -----------------------------------------------------------------------------------------
+            // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BSPC |
+            // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
+            // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
+            //                    | GUI |     | SPC |   | ENT |     | ALT |
+
+            bindings = <
+&kp TILDE  &kp EXCL  &kp AT  &kp HASH   &kp DLLR      &kp PRCNT    &kp F2     &kp F4                &kp UP_ARROW           &kp UP_ARROW  &kp RPAR      &kp BSPC
+&kp LCTRL  &kp F2    &kp F4  &kp F5     &kp F7        &kp F10      &kp F7     &kp LEFT              &kp LEFT               &kp DOWN      &kp RIGHT     &kp GRAVE
+&kp LSHFT  &trans    &trans  &trans     &trans        &trans       &kp F10    &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp PERCENT   &kp QUESTION  &kp TILDE
+                             &kp LCTRL  &kp LEFT_ALT  &kp SPACE    &kp SPACE  &trans                &kp RALT
+            >;
+        };
+    };
+};
 
