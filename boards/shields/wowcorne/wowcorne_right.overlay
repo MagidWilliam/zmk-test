@@ -5,7 +5,7 @@
  */
 
 #include "wowcorne.dtsi"
-#include <input/processors.dtsi>
+
 
 
 &default_transform {
@@ -51,7 +51,6 @@
 
 / {
   cirque_listener {
-    input-processors = <&zip_xy_scaler 3 2>;
     compatible = "zmk,input-listener";
     device = <&cirque>;
     y-invert;
