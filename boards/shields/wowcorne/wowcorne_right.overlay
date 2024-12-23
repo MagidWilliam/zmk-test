@@ -5,6 +5,8 @@
  */
 
 #include "wowcorne.dtsi"
+#include <input/processors.dtsi>
+
 
 &default_transform {
     col-offset = <6>;
@@ -49,6 +51,7 @@
 
 / {
   cirque_listener {
+    input-processors = <&zip_xy_scaler 3 2>;
     compatible = "zmk,input-listener";
     device = <&cirque>;
     y-invert;
@@ -56,9 +59,3 @@
   };
 };
 
-//&usbd {
-//    status = "okay";
-//    cdc_acm_uart: cdc_acm_uart {
-//        compatible = "zephyr,cdc-acm-uart";
-//    };
-//};
