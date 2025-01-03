@@ -64,7 +64,6 @@
         };
  };
 
-   / {
     combos {
         compatible = "zmk,combos";
 
