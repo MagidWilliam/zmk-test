@@ -64,32 +64,13 @@
         };
  };
 
+   / {
     combos {
         compatible = "zmk,combos";
-
-        a-za {
-            bindings = <&kp BACKSPACE>;
-            key-positions = <8 7>;
-        };
-
-        a-zb {
-            bindings = <&kp ESCAPE>;
-            key-positions = <3 2>;
-        };
-
-        a-zc {
-            bindings = <&kp ENTER>;
-            key-positions = <19 20>;
-        };
 
         a-ad {
             bindings = <&kp LEFT_WIN>;
             key-positions = <36 37>;
-        };
-
-        a-ze {
-            bindings = <&kp DEL>;
-            key-positions = <8 9>;
         };
 
         a-zk {
@@ -99,17 +80,12 @@
 
         a-zew {
             bindings = <&kp LEFT_PARENTHESIS>;
-            key-positions = <9 10>;
+            key-positions = <9 8>;
         };
 
         a-zklw {
             bindings = <&kp RIGHT_PARENTHESIS>;
-            key-positions = <10 11>;
-        };
-
-        a-zklx {
-            bindings = <&kp MINUS>;
-            key-positions = <6 7>;
+            key-positions = <10 9>;
         };
 
         z-dkf {
@@ -134,12 +110,12 @@
 
         z-kdjfk {
             bindings = <&kp LC(LS(TAB))>;
-            key-positions = <12 13>;
+            key-positions = <13 1>;
         };
 
         z-dsflkl {
             bindings = <&kp LC(TAB)>;
-            key-positions = <13 14>;
+            key-positions = <14 2>;
         };
 
         s-sdfkfl {
@@ -154,25 +130,19 @@
 
         z-dkfkfj {
             bindings = <&kp K_BACK>;
-            key-positions = <25 26>;
+            key-positions = <25 13>;
         };
 
         z-kdfjg {
             bindings = <&kp K_FORWARD>;
-            key-positions = <26 27>;
+            key-positions = <27 15>;
         };
 
         z-dkfjg {
             bindings = <&kp SQT>;
             key-positions = <35 23>;
         };
-
-        z-kdfkgk {
-            bindings = <&kp SQT>;
-            key-positions = <21 22>;
-        };
     };
-
 
     keymap {
         compatible = "zmk,keymap";
