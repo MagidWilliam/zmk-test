@@ -49,6 +49,8 @@
 #define ESCM &mt LCTRL ESC
 
 
+CIRQUE_PINNACLE_SECONDARY_TAP_ENABLE
+
 &mt {
     tapping-term-ms = <125>;
 };
