@@ -83,7 +83,7 @@ RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)  RC(2,6) RC(2,7) RC(2,8) RC(2,9) RC(2,10
 };
 
 / {
-    behavior {
+    behaviors {
         // 트랙패드 탭을 감지하여 레이어 3으로 전환
         tap_layer_3: behavior_layer_switch {
             compatible = "zmk,behavior-layer";
@@ -112,3 +112,4 @@ RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)  RC(2,6) RC(2,7) RC(2,8) RC(2,9) RC(2,10
             };
         };
     };
+};
