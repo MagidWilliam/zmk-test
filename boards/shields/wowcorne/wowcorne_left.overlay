@@ -23,7 +23,7 @@
         compatible = "cirque,trackpad";
         reg = <0x52>;
         interrupt-parent = <&gpio0>;
-        interrupts = <10 0x01>;  // 수정된 부분
+        interrupts = <10 IRQ_TYPE_EDGE_FALLING>;
     };
 };
 
@@ -33,8 +33,7 @@
     pinctrl-names = "default";
 };
 
-&gpio0_pins {
-    /* GPIO 10번에 대한 설정 추가 */
+&gpio0_pins {  // 여기서 gpio0_pins를 정의
     pinctrl-0 = <&gpio0_10>;
 };
 
@@ -47,6 +46,6 @@
 &cirque_trackpad {
     compatible = "zmk,sensor-mouse";
     status = "okay";
-    mode = "relative";  // 마우스처럼 동작하도록 설정
-    edge_scroll = <1>;  // 가장자리에서 스크롤 활성화
+    mode = "relative";
+    edge_scroll = <1>;
 };
