@@ -1,4 +1,12 @@
+/*
+ * Copyright (c) 2020 Pete Johanson
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
 #include "wowcorne.dtsi"
+
+
 
 &default_transform {
     col-offset = <6>;
@@ -28,6 +36,8 @@
         status = "okay";
         dr-gpios = <&gpio0 6 (GPIO_ACTIVE_HIGH)>;
         sensitivity = "2x";
+        //sleep;
+        //no-taps;
     };
     input_config {
         compatible = "zmk,input-configs";
@@ -37,52 +47,13 @@
             scale-multiplier = <2>;
         };
     };
-};
+   };
 
-&gpio0 {
-    status = "okay";
-    pinctrl-0 = <&gpio0_pins>;
-    pinctrl-names = "default";
-};
-
-// Define the pin configuration for gpio0 pin 6
-&gpio0_pins {
-    gpio-hog;
-    gpios = <&gpio0 6 GPIO_ACTIVE_HIGH>;
-    output-high;
-};
-
-// Create the gpio0_6 configuration
-&gpio0_6 {
-    label = "GPIO_6";
-    gpio-hog;
-    gpios = <&gpio0 6 GPIO_ACTIVE_HIGH>;
-    output-low;
-};
-
-// Trackpad configuration
-&cirque_trackpad {
-    compatible = "zmk,sensor-mouse";
-    status = "okay";
-    mode = "relative";
-    edge_scroll = <1>;
-};
-
-// Set up the I2C for the trackpad
-&i2c1 {
-    status = "okay";
-    cirque_trackpad: cirque@52 {
-        compatible = "cirque,trackpad";
-        reg = <0x52>;
-        interrupt-parent = <&gpio0>;
-        interrupts = <10 0>;
-    };
-};
-
-// Listener for the trackpad input
-&cirque_listener {
+/ {
+  cirque_listener {
     compatible = "zmk,input-listener";
     device = <&cirque>;
     y-invert;
     scale-multiplier = <2>;
+  };
 };
