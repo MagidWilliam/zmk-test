@@ -48,6 +48,78 @@
 #define LANGM &mt RALT LC(SPACE)
 #define ESCM &mt LCTRL ESC
 
+
+/* Global settings */
+
+#define QUICK_TAP_MS 175
+
+/{
+  cirque_mmv {
+    compatible = "zmk,input-behavior-listener";
+    device = <&vtrackpad>;
+    layers= <DEF MOUSE>;
+    evt-type = <INPUT_EV_REL>;
+    x-input-code = <INPUT_REL_X>;
+    y-input-code = <INPUT_REL_Y>;
+    scale-multiplier = <2>;
+    scale-divisor = <1>;
+    bindings = <&ib_tog_layer MOUSE>;
+    y-invert;
+  }; 
+  cirque_scl {
+    compatible = "zmk,input-behavior-listener";
+    device = <&vtrackpad>;
+    layers = <MOUSEVS>;
+    evt-type = <INPUT_EV_REL>;
+    
+    /* slienting x-axis with alt event code */
+    x-input-code = <INPUT_REL_MISC>;
+    y-input-code = <INPUT_REL_WHEEL>;
+
+    /* invent scrolling direction */
+    y-invert;
+    bindings = <&ib_wheel_scaler 1 16>;
+  };
+  cirque_hscl {
+    compatible = "zmk,input-behavior-listener";
+    device = <&vtrackpad>;
+    layers = <MOUSEHS>;
+    evt-type = <INPUT_EV_REL>;
+    
+    /* slienting x-axis with alt event code */
+    x-input-code = <INPUT_REL_HWHEEL>;
+    y-input-code = <INPUT_REL_MISC>;
+
+    /* invent scrolling direction */
+    // y-invert;
+    x-invert;
+    bindings = <&ib_hwheel_scaler 1 16>;
+  };
+  // 아직 기능이 완벽하지 않음 터치를 하는동안 인식하는것이 아니라 움직임이 나타나야 인지함
+  ib_tog_layer: ib_tog_layer {
+    compatible = "zmk,input-behavior-tog-layer";
+    #binding-cells = <1>;
+    time-to-live-ms = <2500>;
+  };
+  ib_wheel_scaler: ib_wheel_scaler {
+    compatible = "zmk,input-behavior-scaler";
+    #binding-cells = <2>;
+    evt-type = <INPUT_EV_REL>;
+    input-code = <INPUT_REL_WHEEL>;
+  };
+
+  ib_hwheel_scaler: ib_hwheel_scaler {
+    compatible = "zmk,input-behavior-scaler";
+    #binding-cells = <2>;
+    evt-type = <INPUT_EV_REL>;
+    input-code = <INPUT_REL_HWHEEL>;
+  };
+  
+};
+
+
+
+
 &mt {
     tapping-term-ms = <100>;
 };
