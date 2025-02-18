@@ -16,3 +16,10 @@
         , <&pro_micro 14 GPIO_ACTIVE_HIGH>
         ;
 };
+
+&cirque_trackpad {
+    compatible = "zmk,sensor-mouse";
+    status = "okay";
+    mode = "relative";
+    edge_scroll = <1>;
+};
