@@ -98,13 +98,15 @@ RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)  RC(2,6) RC(2,7) RC(2,8) RC(2,9) RC(2,10
     };
 
     // Cirque 트랙패드 탭 동작과 매핑
- &cirque {
+&cirque {
     pointing-device {
         compatible = "zmk,pointing-device";
 
         // Gesture 및 Tap 이벤트 설정
-        tap {
-            behavior = <&tap_layer_3>;  // tap 동작이 발생하면 behavior_layer_switch로 지정된 동작을 실행
+        behaviors {
+            tap {
+                behavior = <&tap_layer_3>;  // 탭 동작이 발생하면 behavior_layer_switch로 지정된 동작을 실행
+            };
         };
 
         // 제스처 스크롤, 탭 및 보조 탭 등의 기능도 설정
