@@ -17,6 +17,16 @@
         ;
 };
 
+&i2c1 {
+    status = "okay";
+    cirque_trackpad: cirque@52 {
+        compatible = "cirque,trackpad";
+        reg = <0x52>;
+        interrupt-parent = <&gpio0>;
+        interrupts = <10 IRQ_TYPE_EDGE_FALLING>;
+    };
+};
+
 &cirque_trackpad {
     compatible = "zmk,sensor-mouse";
     status = "okay";
