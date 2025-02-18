@@ -47,7 +47,6 @@
 
 // Define the pin configuration for gpio0 pin 6
 &gpio0_pins {
-    pinctrl-0 = <&gpio0_6>;
     gpio-hog;
     gpios = <&gpio0 6 GPIO_ACTIVE_HIGH>;
     output-high;
