@@ -51,3 +51,11 @@
         zmk,underglow = &led_strip;
     };
 };
+
+&cirque_trackpad {
+    compatible = "zmk,sensor-mouse";
+    status = "okay";
+    mode = "relative";
+    edge_scroll = "true";  // 가장자리 스크롤 기능 활성화
+};
+
