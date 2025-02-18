@@ -48,40 +48,6 @@
 #define LANGM &mt RALT LC(SPACE)
 #define ESCM &mt LCTRL ESC
 
-
-#if MOUSE_LAYER_AUTO_ENABLE
-    // 마우스 레이어를 지정 합니다.
-    #define _MOUSE_LAYER 3
- 
-    // 마우스 레이어 비활성 타이머 (1000 = 1s, 사용하면서 조정이 필요 합니다.)
-    #define MOUSE_TIMEOUT 1000
- 
-    static uint16_t mouse_timer = 0;
-    static bool mouse_layer_active = false;
- 
-void ps2_mouse_moved_user(report_mouse_t *mouse_report) {
-     // 마우스 움직임 감지 시 레이어 활성화
-        if (!mouse_layer_active) {
-            layer_on(_MOUSE_LAYER);
-            mouse_layer_active = true;
-        }
- 
-        // 타이머 리셋
-        mouse_timer = timer_read();
-}
-#endif
- 
-void matrix_scan_user(void) { // The very important timer.
-    #if MOUSE_LAYER_AUTO_ENABLE
-      // 마우스 비활성 시간 체크
-      if (mouse_layer_active && timer_elapsed(mouse_timer) > MOUSE_TIMEOUT) {
-          layer_off(_MOUSE_LAYER);
-          mouse_layer_active = false;
-      }
-    #endif
-}
-
-
 &mt {
     tapping-term-ms = <100>;
 };
