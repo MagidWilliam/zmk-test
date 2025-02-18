@@ -6,8 +6,6 @@
 
 #include "wowcorne.dtsi"
 
-
-
 &default_transform {
     col-offset = <6>;
 };
@@ -29,7 +27,7 @@
 
 &pro_micro_i2c {
     status = "okay";
-    clock-frequency = < 400000 >;
+    clock-frequency = <400000>;
     cirque: cirque@2a {
         compatible = "cirque,pinnacle";
         reg = <0x2a>;
@@ -47,17 +45,14 @@
             scale-multiplier = <2>;
         };
     };
-   };
+};
 
-/ {
-  cirque_listener {
+&cirque_listener {
     compatible = "zmk,input-listener";
     device = <&cirque>;
     y-invert;
     scale-multiplier = <2>;
-  };
 };
-
 
 &i2c1 {
     status = "okay";
@@ -65,10 +60,9 @@
         compatible = "cirque,trackpad";
         reg = <0x52>;
         interrupt-parent = <&gpio0>;
-        interrupts = <10 0>; 
+        interrupts = <10 0>;
     };
 };
-
 
 &gpio0 {
     status = "okay";
@@ -87,16 +81,6 @@
     gpios = <&gpio0 10 GPIO_ACTIVE_LOW>;
     output-high;
 };
-
-&pinctrl {
-    gpio0_pins: gpio0_pins {
-        group {
-            pins = "GPIO0_PIN10";
-            function = "gpio";
-        };
-    };
-};
-
 
 &cirque_trackpad {
     compatible = "zmk,sensor-mouse";
