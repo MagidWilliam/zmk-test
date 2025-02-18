@@ -47,13 +47,6 @@
     };
 };
 
-&cirque_listener {
-    compatible = "zmk,input-listener";
-    device = <&cirque>;
-    y-invert;
-    scale-multiplier = <2>;
-};
-
 &i2c1 {
     status = "okay";
     cirque_trackpad: cirque@52 {
@@ -87,4 +80,11 @@
     status = "okay";
     mode = "relative";
     edge_scroll = <1>;
+};
+
+&input_listener {
+    compatible = "zmk,input-listener";
+    device = <&cirque>;
+    y-invert;
+    scale-multiplier = <2>;
 };
