@@ -41,9 +41,10 @@
 
 &gpio0_10 {
     gpio-hog;
-    gpios = <10 GPIO_ACTIVE_LOW>;
+    gpios = <&gpio0 10 GPIO_ACTIVE_LOW>;
     output-high;
 };
+
 
 &cirque_trackpad {
     compatible = "zmk,sensor-mouse";
