@@ -191,6 +191,30 @@
         };
     };
 
+#include <drivers/trackpad.h>
+#include <zmk/behavior.h>
+
+// 트랙패드 상태 변경에 따른 레이어 상태 변경
+bool layer_switch_on_touch(struct zmk_behavior_binding *binding, struct zmk_key_state *state) {
+    // 트랙패드를 터치했을 때 레이어 3으로 변경
+    if (state->pressed) {
+        zmk_keymap_set_layer(3);  // 레이어 3으로 설정
+    } else {
+        zmk_keymap_set_layer(0);  // 기본 레이어로 돌아가기
+    }
+    return true;
+}
+
+// 트랙패드에 해당하는 행동을 키맵에 추가
+const struct zmk_behavior_binding trackpad_touch_binding = {
+    .binding = ZMK_KEYMAP_BINDING,
+    .behavior = layer_switch_on_touch,  // 트랙패드 이벤트가 발생하면 행동 정의
+};
+
+
+
+
+
     keymap {
         compatible = "zmk,keymap";
 
