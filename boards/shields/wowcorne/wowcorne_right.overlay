@@ -65,7 +65,7 @@
         compatible = "cirque,trackpad";
         reg = <0x52>;
         interrupt-parent = <&gpio0>;
-        interrupts = <10 DT_IRQ_TYPE_EDGE_FALLING>;
+        interrupts = <10 0>; 
     };
 };
 
