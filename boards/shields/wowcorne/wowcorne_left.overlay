@@ -16,3 +16,10 @@
         , <&pro_micro 14 GPIO_ACTIVE_HIGH>
         ;
 };
+
+&cirque_trackpad {
+    compatible = "zmk,sensor-mouse";
+    status = "okay";
+    mode = "relative";  // 마우스처럼 동작하도록 설정
+    edge_scroll = "true";  // 가장자리에서 스크롤 활성화
+};
