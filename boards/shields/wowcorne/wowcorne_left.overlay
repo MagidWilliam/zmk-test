@@ -31,5 +31,5 @@
     compatible = "zmk,sensor-mouse";
     status = "okay";
     mode = "relative";  // 마우스처럼 동작하도록 설정
-    edge_scroll = "true";  // 가장자리에서 스크롤 활성화
+    edge_scroll = <1>;  // 가장자리에서 스크롤 활성화
 };
