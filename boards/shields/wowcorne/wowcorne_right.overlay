@@ -88,3 +88,13 @@
     y-invert;
     scale-multiplier = <2>;
 };
+
+// gpio0_pins를 명확히 정의합니다.
+&gpio0_pins {
+    gpio0_6: gpio0_6 {
+        pinctrl-0 = <&gpio0_6>;
+    };
+    gpio0_10: gpio0_10 {
+        pinctrl-0 = <&gpio0_10>;
+    };
+};
