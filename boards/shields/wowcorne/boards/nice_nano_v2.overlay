@@ -39,6 +39,13 @@
     };
 };
 
+&cirque_trackpad {
+    status = "okay";
+    compatible = "zmk,sensor-mouse";
+    mode = "relative";  // 트랙패드를 마우스처럼 동작하도록 설정
+    edge_scroll = "true";  // 가장자리에서만 스크롤 활성화
+};
+
 / {
     chosen {
         zmk,underglow = &led_strip;
