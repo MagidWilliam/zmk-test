@@ -192,7 +192,7 @@
     };
 
 
-
+#include <west.yml>
 // 트랙패드 상태 변경에 따른 레이어 상태 변경
 bool layer_switch_on_touch(struct zmk_behavior_binding *binding, struct zmk_key_state *state) {
     // 트랙패드를 터치했을 때 레이어 3으로 변경
