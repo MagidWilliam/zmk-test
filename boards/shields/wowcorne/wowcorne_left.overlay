@@ -27,6 +27,11 @@
     };
 };
 
+&gpio0 {
+    status = "okay";
+    // 여기에 gpio 관련 설정 추가가 필요할 수 있습니다.
+};
+
 &cirque_trackpad {
     compatible = "zmk,sensor-mouse";
     status = "okay";
