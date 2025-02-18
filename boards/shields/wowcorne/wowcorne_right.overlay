@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020 Pete Johanson
- *
- * SPDX-License-Identifier: MIT
- */
-
 #include "wowcorne.dtsi"
 
 &default_transform {
@@ -45,7 +39,6 @@
     };
 };
 
-// Define GPIO pins for the device tree overlay
 &gpio0 {
     status = "okay";
     pinctrl-0 = <&gpio0_pins>;
