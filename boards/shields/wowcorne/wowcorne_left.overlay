@@ -23,13 +23,25 @@
         compatible = "cirque,trackpad";
         reg = <0x52>;
         interrupt-parent = <&gpio0>;
-       interrupts = <&gpio0 10 IRQ_TYPE_EDGE_FALLING>;
+        interrupts = <&gpio0 10 IRQ_TYPE_EDGE_FALLING>;
     };
 };
 
 &gpio0 {
     status = "okay";
-    // 여기에 gpio 관련 설정 추가가 필요할 수 있습니다.
+    pinctrl-0 = <&gpio0_pins>;
+    pinctrl-names = "default";
+};
+
+&gpio0_pins {
+    /* GPIO 10번에 대한 설정 추가 */
+    pinctrl-0 = <&gpio0_10>;
+};
+
+&gpio0_10 {
+    gpio-hog;
+    gpios = <10 GPIO_ACTIVE_LOW>;
+    output-high;
 };
 
 &cirque_trackpad {
