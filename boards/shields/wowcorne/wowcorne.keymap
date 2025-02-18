@@ -191,8 +191,7 @@
         };
     };
 
-#include <drivers/trackpad.h>
-#include <zmk/behavior.h>
+
 
 // 트랙패드 상태 변경에 따른 레이어 상태 변경
 bool layer_switch_on_touch(struct zmk_behavior_binding *binding, struct zmk_key_state *state) {
