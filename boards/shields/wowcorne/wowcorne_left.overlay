@@ -23,7 +23,7 @@
         compatible = "cirque,trackpad";
         reg = <0x52>;
         interrupt-parent = <&gpio0>;
-        interrupts = <&gpio0 10 IRQ_TYPE_EDGE_FALLING>;  // 수정된 부분
+        interrupts = <10 0x01>;  // 수정된 부분
     };
 };
 
